@@ -1,15 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // Search functionality
     const searchInput = document.querySelector('.holiday__search-btn');
     const searchIcon = document.querySelector('.holiday__search .bx-search');
 
     if (searchInput && searchIcon) {
-        searchIcon.addEventListener('click', function() {
+        searchIcon.addEventListener('click', function () {
             performSearch(searchInput.value);
         });
 
-        searchInput.addEventListener('keypress', function(e) {
+        searchInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 performSearch(this.value);
             }
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const countDownDate = new Date().getTime() + (20 * 60 * 60 * 1000);
 
         // Update the countdown every 1 second
-        const x = setInterval(function() {
+        const x = setInterval(function () {
             const now = new Date().getTime();
             const distance = countDownDate - now;
 
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Update the time elements
-            document.querySelector('.time__block:nth-child(1) .time__number').textContent = 
+            document.querySelector('.time__block:nth-child(1) .time__number').textContent =
                 days.toString().padStart(3, '0');
-            document.querySelector('.time__block:nth-child(2) .time__number').textContent = 
+            document.querySelector('.time__block:nth-child(2) .time__number').textContent =
                 hours.toString().padStart(2, '0');
-            document.querySelector('.time__block:nth-child(3) .time__number').textContent = 
+            document.querySelector('.time__block:nth-child(3) .time__number').textContent =
                 minutes.toString().padStart(2, '0');
-            document.querySelector('.time__block:nth-child(4) .time__number').textContent = 
+            document.querySelector('.time__block:nth-child(4) .time__number').textContent =
                 seconds.toString().padStart(2, '0');
 
             if (distance < 0) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const newsletterButton = newsletterForm.querySelector('.footer__btn');
 
     if (newsletterButton) {
-        newsletterButton.addEventListener('click', function(e) {
+        newsletterButton.addEventListener('click', function (e) {
             e.preventDefault();
             if (newsletterInput.value.trim() !== '') {
                 alert('Thank you for subscribing to our newsletter!');
@@ -71,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Booking Form Modal and Validation
     function initializeBookingForm() {
         const bookNowButtons = document.querySelectorAll('.beaches__btn, .pri-btn');
-        
+
         bookNowButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
+            button.addEventListener('click', function (e) {
                 e.preventDefault();
                 showBookingForm();
             });
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Handle modal close
             const modal = document.querySelector('.booking-modal');
             const closeBtn = document.querySelector('.close-modal');
-            
+
             closeBtn.onclick = () => modal.remove();
             window.onclick = (e) => {
                 if (e.target === modal) modal.remove();
